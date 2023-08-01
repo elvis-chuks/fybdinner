@@ -45,7 +45,7 @@
           <input id="ticket-check" v-model="regular2" type="checkbox" name="check">
         </div>
       </div>
-      <primary-button class="continue-btn" />
+      <primary-button class="continue-btn" @click.native="buyTicket()" />
     </div>
   </div>
 </template>
@@ -55,7 +55,9 @@ export default {
   data () {
     return {
       regular1: false,
-      regular2: false
+      regular2: false,
+      regular1Link: 'https://selar.co/kj6j30',
+      regular2Link: 'https://selar.co/1c12f3'
     }
   },
   methods: {
@@ -70,15 +72,20 @@ export default {
           this.regular2 = true
           break
       }
+    },
+    buyTicket () {
+      if (this.regular1) {
+        window.location.href = this.regular1Link
+      } else if (this.regular2) {
+        window.location.href = this.regular2Link
+      } else {
+        alert('select a ticket')
+      }
     }
   }
 }
 </script>
 <style scoped>
-.modal-wrapper {
-  /* background: rebeccapurple; */
-  /* margin-top: 20px; */
-}
 
 .top h3 {
   font-size: 30px;
@@ -120,10 +127,6 @@ export default {
 
 .icon img {
   width: 68px;
-}
-
-.ticket-body {
-  /* background: rebeccapurple; */
 }
 
 .ticket-body-top {
