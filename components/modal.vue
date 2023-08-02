@@ -72,5 +72,9 @@ export default {
     .modal-content {
         width: 90%;
     }
+
+    .modal-content {
+      margin: 20px auto;
+    }
 }
 </style>

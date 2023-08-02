@@ -97,5 +97,9 @@ export default {
   .inner-wrapper {
     padding-top: 30px;
   }
+
+  .bottom-img {
+    margin-top: 30px;
+  }
 }
 </style>
