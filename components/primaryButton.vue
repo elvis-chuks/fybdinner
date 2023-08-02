@@ -41,6 +41,7 @@ export default {
   border-radius: 14px;
   border: 1px solid var(--light-grey);
   letter-spacing: 0.5px;
+  box-shadow: 0px 1px 3px 0px rgba(47, 43, 67, 0.10), 0px 2px 0px 0px rgba(234, 234, 234, 0.25) inset;
 }
 
 .primary-btn p {
