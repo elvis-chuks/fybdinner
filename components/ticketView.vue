@@ -1,48 +1,107 @@
 <template>
-  <div id="pdf" class="wrapper">
-    <div class="qr-code">
-      <img v-show="fullname != ''" :src="qrString" alt="" title="">
+  <div>
+    <div id="pdf" class="wrapper">
+      <div class="qr-code">
+        <img v-show="fullname != ''" :src="qrString" alt="" title="">
+      </div>
+      <div class="top">
+        <h2>Ticket purchased!</h2>
+        <p>Check your mail, we just sent you a receipt of your ticket!</p>
+      </div>
+      <div class="body">
+        <table>
+          <tbody>
+            <tr>
+              <td>Name</td>
+              <td>{{ fullname }}</td>
+            </tr>
+            <tr>
+              <td>Email</td>
+              <td>{{ email }}</td>
+            </tr>
+            <tr>
+              <td>Date</td>
+              <td>{{ date }}</td>
+            </tr>
+            <tr>
+              <td>Amount</td>
+              <td>₦{{ amount }}</td>
+            </tr>
+            <tr>
+              <td>Ticket type</td>
+              <td>{{ type }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="btns" class="ctas">
+        <secondary-button
+          :name="'Download Ticket'"
+          class="btn"
+          @click.native="downloadTicket"
+        />
+        <primary-button :name="'Send to me'" class="btn" />
+      </div>
     </div>
-    <div class="top">
-      <h2>Ticket purchased!</h2>
-      <p>Check your mail, we just sent you a receipt of your ticket!</p>
-    </div>
-    <div class="body">
-      <table>
-        <tbody>
-          <tr>
-            <td>Date</td>
-            <td>{{ date }}</td>
-          </tr>
-          <tr>
-            <td>Amount</td>
-            <td>₦{{ amount }}</td>
-          </tr>
-          <tr>
-            <td>Ticket type</td>
-            <td>{{ type }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="ctas">
-      <secondary-button
-        :name="'Download Ticket'"
-        class="btn"
-        @click.native="downloadTicket"
-      />
-      <primary-button :name="'Send to me'" class="btn" />
-    </div>
+    <!-- <div
+      id="ticket"
+      class="wrapper"
+      :style="{
+        display: 'none'
+      }"
+    >
+      <div class="qr-code">
+        <img v-show="fullname != ''" :src="qrString" alt="" title="">
+      </div>
+      <div class="top">
+        <h2>FYB dinner ticket</h2>
+        <p>This would admit you at the venue</p>
+      </div>
+      <div class="body">
+        <table>
+          <tbody>
+            <tr>
+              <td>Name</td>
+              <td>{{ fullname }}</td>
+            </tr>
+            <tr>
+              <td>Email</td>
+              <td>{{ email }}</td>
+            </tr>
+            <tr>
+              <td>Date</td>
+              <td>{{ date }}</td>
+            </tr>
+            <tr>
+              <td>Amount</td>
+              <td>₦{{ amount }}</td>
+            </tr>
+            <tr>
+              <td>Ticket type</td>
+              <td>{{ type }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="ctas">
+        <secondary-button
+          :name="'Download Ticket'"
+          class="btn"
+          @click.native="downloadTicket"
+        />
+        <primary-button :name="'Send to me'" class="btn" />
+      </div>
+    </div> -->
   </div>
 </template>
 <script>
 import jsPDF from 'jspdf'
 import html2canvas from 'html2canvas'
-import PrimaryButton from './primaryButton.vue'
-import secondaryButton from './secondaryButton.vue'
+// import PrimaryButton from './primaryButton.vue'
+// import secondaryButton from './secondaryButton.vue'
 export default {
   name: 'TicketView',
-  components: { secondaryButton, PrimaryButton },
+  // components: { secondaryButton, PrimaryButton },
   props: {
     fullname: {
       type: String,
@@ -83,7 +142,9 @@ export default {
   },
   methods: {
     downloadTicket () {
+      document.getElementById('btns').style.display = 'none'
       const html = document.getElementById('pdf')
+      console.log(html)
       html.style.margin = 30
 
       html2canvas(html, {
@@ -91,9 +152,24 @@ export default {
       }).then((canvas) => {
         const img = canvas.toDataURL('image/png')
         // eslint-disable-next-line new-cap
-        const doc = new jsPDF('p', 'px', [700, 540])
-        doc.addImage(img, 'JPEG', 20, 20)
+        const doc = new jsPDF('p', 'px')
+        const width = doc.internal.pageSize.getWidth()
+        const height = doc.internal.pageSize.getHeight()
+        const widthRatio = width / canvas.width
+        const heightRatio = height / canvas.height
+        const ratio = widthRatio > heightRatio ? heightRatio : widthRatio
+        doc.internal.pageSize.width = canvas.width
+        doc.internal.pageSize.height = canvas.height
+        doc.addImage(
+          img,
+          'JPEG',
+          20,
+          20,
+          canvas.width * ratio,
+          canvas.height * ratio
+        )
         doc.save('test.pdf')
+        document.getElementById('btns').style.display = 'flex'
       })
     }
   }
@@ -190,5 +266,11 @@ tr td:nth-child(2) {
 
 .btn {
   width: 100%;
+}
+
+@media (max-width: 500px) {
+  .ctas {
+    flex-direction: column;
+  }
 }
 </style>

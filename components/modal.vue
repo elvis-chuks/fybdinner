@@ -30,7 +30,7 @@ export default {
   top: 0;
   width: 100%;
   height: 100vh;
-  overflow: none;
+  overflow: auto;
   background-color: rgb(0,0,0);
   background-color: rgba(0,0,0,0.6);
 }
