@@ -12,7 +12,7 @@
         <img src="@/assets/images/phone-view.png" alt="ticket">
       </div>
     </div>
-    <modal v-if="showModal" @closeModal="showModal = false">
+    <modal v-show="showModal" @closeModal="showModal = false">
       <buy-ticket />
     </modal>
   </div>

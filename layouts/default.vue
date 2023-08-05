@@ -8,7 +8,7 @@
         <primary-button @click.native="showModal = true" />
       </div>
     </header>
-    <modal v-if="showModal" @closeModal="showModal = false">
+    <modal v-show="showModal" @closeModal="showModal = false">
       <buy-ticket />
     </modal>
     <Nuxt />

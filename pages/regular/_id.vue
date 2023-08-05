@@ -1,6 +1,6 @@
 <template>
   <div>
-    <modal v-if="showModal == true" @closeModal="showModal = false">
+    <modal v-show="showModal == true" @closeModal="showModal = false">
       <ticket-view
         :id="id"
         :fullname="fullname"
