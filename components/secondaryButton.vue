@@ -1,11 +1,17 @@
 <template>
   <button class="primary-btn">
-    <p>Contact Sales</p>
+    <p>{{ name }}</p>
   </button>
 </template>
 <script>
 export default {
-  name: 'PrimaryButton'
+  name: 'PrimaryButton',
+  props: {
+    name: {
+      type: String,
+      default: 'Contact Sales'
+    }
+  }
 }
 </script>
   <style scoped>

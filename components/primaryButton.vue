@@ -1,6 +1,6 @@
 <template>
   <Button class="primary-btn">
-    <p>Buy tickets</p>
+    <p>{{ name }}</p>
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
       <path
         d="M12.025 4.94165L17.0834 9.99998L12.025 15.0583"
@@ -23,7 +23,13 @@
 </template>
 <script>
 export default {
-  name: 'PrimaryButton'
+  name: 'PrimaryButton',
+  props: {
+    name: {
+      type: String,
+      default: 'Buy tickets'
+    }
+  }
 }
 </script>
 <style scoped>
