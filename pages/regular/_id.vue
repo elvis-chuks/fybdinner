@@ -1,7 +1,7 @@
 <template>
   <div>
     <client-only>
-      <modal v-show="showModal == true" @closeModal="showModal = false">
+      <modal>
         <ticket-view
           :id="id"
           :fullname="fullname"
@@ -26,8 +26,7 @@ export default {
       fullname: '',
       type: '',
       id: '',
-      date: '',
-      showModal: true
+      date: ''
     }
   },
   mounted () {

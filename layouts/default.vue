@@ -2,7 +2,8 @@
   <div class="wrapper">
     <header>
       <div class="logo">
-        <p>Logo</p>
+        <img src="@/assets/images/nuesa.jpg" alt="NUESA">
+        <img src="@/assets/images/naas.jpg" alt="NAAS">
       </div>
       <div class="cta">
         <primary-button @click.native="showModal = true" />
@@ -26,19 +27,28 @@ export default {
 
 <style scoped>
 .wrapper {
-    width: 90%;
-    margin: auto;
+  width: 90%;
+  margin: auto;
 }
 header {
-    display: flex;
-    justify-content: space-between;
-    height: 80px;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+  align-items: center;
 }
 
-@media(max-width: 500px) {
-    .cta {
-        display: none;
-    }
+.logo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo img {
+  width: 60px;
+}
+
+@media (max-width: 500px) {
+  .cta {
+    display: none;
+  }
 }
 </style>
