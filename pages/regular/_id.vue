@@ -1,15 +1,17 @@
 <template>
   <div>
-    <modal v-show="showModal == true" @closeModal="showModal = false">
-      <ticket-view
-        :id="id"
-        :fullname="fullname"
-        :email="email"
-        :type="type"
-        :amount="'5,000'"
-        :date="date"
-      />
-    </modal>
+    <client-only>
+      <modal v-show="showModal == true" @closeModal="showModal = false">
+        <ticket-view
+          :id="id"
+          :fullname="fullname"
+          :email="email"
+          :type="type"
+          :amount="'5,000'"
+          :date="date"
+        />
+      </modal>
+    </client-only>
   </div>
 </template>
 <script>
