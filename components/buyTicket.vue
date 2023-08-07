@@ -10,13 +10,13 @@
         </div>
         <div class="ticket-body">
           <div class="ticket-body-top">
-            <p>Regular</p>
+            <p>Regular (Solo ticket)</p>
             <p>₦5,000</p>
           </div>
           <div class="ticket-description">
             <p>
               This type of ticket will be used per person at entry. Select this
-              ticket option and proceed
+              ticket option and proceed.
             </p>
           </div>
         </div>
@@ -36,8 +36,10 @@
           </div>
           <div class="ticket-description">
             <p>
-              This type of ticket will be used per person at entry. Select this
-              ticket option and proceed
+              Duoble-end ticket. Select this
+              ticket option and proceed.
+              <br>
+              <i>Note: Not available for same-gender pairs and same-faculty pairs.</i>
             </p>
           </div>
         </div>
