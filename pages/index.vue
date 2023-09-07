@@ -2,7 +2,7 @@
   <div class="wrapper">
     <div class="inner-wrapper">
       <div class="hero">
-        <h1>Purchase your FYB-Dinner tickets</h1>
+        <h1>Purchase your <span>FYB-Dinner</span> tickets</h1>
         <div class="ctas">
           <primary-button @click.native="showModal = true" />
           <secondary-button />
@@ -19,10 +19,10 @@
 </template>
 
 <script>
-import BuyTicket from '~/components/buyTicket.vue'
-import Modal from '~/components/modal.vue'
-import primaryButton from '~/components/primaryButton.vue'
-import SecondaryButton from '~/components/secondaryButton.vue'
+import BuyTicket from '~/components/BuyTicket.vue'
+import Modal from '~/components/Modal.vue'
+import primaryButton from '~/components/PrimaryButton.vue'
+import SecondaryButton from '~/components/SecondaryButton.vue'
 export default {
   name: 'IndexPage',
   components: { primaryButton, SecondaryButton, Modal, BuyTicket },
@@ -59,12 +59,17 @@ export default {
   flex-direction: column;
 }
 
-.hero h1 {
+.hero h1,
+.hero h1 span {
   font-size: 64px;
   font-weight: 500;
   letter-spacing: -0.5px;
+  text-align: center;
 }
 
+.hero h1 span {
+  white-space: nowrap;
+}
 .ctas {
   display: flex;
   gap: 20px;
@@ -85,21 +90,42 @@ export default {
   .hero {
     width: 100%;
   }
-  .hero h1 {
+  .hero h1,
+  .hero h1 span {
     font-size: 45px;
     width: 100%;
     text-align: center;
   }
   .ctas {
     flex-direction: column;
+    align-items: center;
+  }
+
+  .ctas button {
+    width: 100%;
   }
 
   .inner-wrapper {
     padding-top: 30px;
+    width: 90%;
   }
 
   .bottom-img {
     margin-top: 30px;
+  }
+
+  .bottom-img img {
+    width: 300px;
+  }
+}
+
+@media(max-width: 300px) {
+  .hero h1 span {
+    white-space: pre-wrap;
+  }
+
+  .bottom-img img {
+    width: 100%;
   }
 }
 </style>

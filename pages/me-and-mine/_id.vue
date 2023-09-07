@@ -13,8 +13,8 @@
   </div>
 </template>
 <script>
-import Modal from '~/components/modal.vue'
-import ticketView from '~/components/ticketView.vue'
+import Modal from '~/components/Modal.vue'
+import ticketView from '~/components/TicketView.vue'
 export default {
   name: 'MeAndMine',
   components: { ticketView, Modal },

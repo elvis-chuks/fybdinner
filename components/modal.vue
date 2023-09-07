@@ -2,7 +2,7 @@
   <div class="modal">
     <div class="modal-content">
       <div class="top">
-        <span class="close" @click="closeModal()">&times;</span>
+        <modal-close-btn v-if="showTopCloseBtn" @close="closeModal()" />
       </div>
       <div class="modal-body">
         <slot />
@@ -12,8 +12,16 @@
 </template>
 
 <script>
+import ModalCloseBtn from './ModalCloseBtn.vue'
 export default {
   name: 'ModalView',
+  components: { ModalCloseBtn },
+  props: {
+    showTopCloseBtn: {
+      type: Boolean,
+      default: () => true
+    }
+  },
   methods: {
     closeModal () {
       this.$emit('closeModal')
@@ -75,6 +83,7 @@ export default {
 
     .modal-content {
       margin: 20px auto;
+      padding: 0 20px 20px;
     }
 }
 </style>

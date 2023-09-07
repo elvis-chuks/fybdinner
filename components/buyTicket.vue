@@ -214,7 +214,7 @@ export default {
 }
 
 .continue-btn {
-  width: 100%;
+  width: 100% !important;
   margin-top: 30px;
   height: 55px;
 }

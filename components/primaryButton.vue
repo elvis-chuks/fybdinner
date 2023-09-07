@@ -34,7 +34,8 @@ export default {
 </script>
 <style scoped>
 .primary-btn {
-  padding: 16px 24px;
+  padding: 16px 5px;
+  width: 180px;
   background: var(--dark-grey);
   cursor: pointer;
   height: 50px;

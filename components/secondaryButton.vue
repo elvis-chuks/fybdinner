@@ -17,7 +17,8 @@ export default {
   <style scoped>
 .primary-btn {
   /* width: 165px; */
-  padding: 16px 24px;
+  padding: 16px 5px;
+  width: 180px;
   background: var(--grey-6);
   cursor: pointer;
   height: 50px;

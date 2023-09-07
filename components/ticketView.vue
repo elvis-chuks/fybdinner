@@ -168,7 +168,9 @@ export default {
           canvas.width * ratio,
           canvas.height * ratio
         )
-        doc.save('test.pdf')
+        let pdfName = `${this.fullname || 'RECEIPT'}-${this.type || 'RECEIPT'}-${this.date || 'DATE'}`
+        pdfName = pdfName.replaceAll(' ', '-').toUpperCase()
+        doc.save(`${pdfName}.pdf`)
         document.getElementById('btns').style.display = 'flex'
       })
     }
@@ -183,11 +185,19 @@ export default {
 .qr-code {
   display: flex;
   align-items: center;
+  border-radius: 5px;
+  border: var(--qr-code-ctn-bd) solid rgba(234, 234, 234, 0.25);
+  width: fit-content;
+  align-self: center;
+  --qr-code-ctn-pd: 3px;
+  --qr-code-ctn-bd: 1px;
+  width: calc(150px + var(--qr-code-ctn-pd) + var(--qr-code-ctn-bd));
+  height: calc(150px + var(--qr-code-ctn-pd) + var(--qr-code-ctn-bd));
+  background: rgba(234, 234, 234, 0.25);
 }
 
 .qr-code img {
   margin: auto;
-  border-radius: 16px;
   box-shadow: 0px 2px 6px 0px rgba(47, 43, 67, 0.1),
     0px 4px 0px 0px rgba(234, 234, 234, 0.25) inset;
   /* width: 150px; */

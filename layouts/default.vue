@@ -40,6 +40,7 @@ header {
 .logo {
   display: flex;
   justify-content: space-between;
+  gap: 10px;
 }
 
 .logo img {

@@ -1,7 +1,7 @@
 <template>
   <div>
     <client-only>
-      <modal>
+      <modal :show-top-close-btn="false">
         <ticket-view
           :id="id"
           :fullname="fullname"
@@ -15,8 +15,8 @@
   </div>
 </template>
 <script>
-import Modal from '~/components/modal.vue'
-import ticketView from '~/components/ticketView.vue'
+import Modal from '~/components/Modal.vue'
+import ticketView from '~/components/TicketView.vue'
 export default {
   name: 'Regular',
   components: { ticketView, Modal },
