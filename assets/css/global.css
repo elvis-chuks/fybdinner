@@ -1,0 +1,59 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@400;500&display=swap');
+
+:root {
+    --padding: 10vw;
+    --dark-grey: #303237;
+    --light-grey: #565C69;
+    --dark-purple: #1C1132;
+    --light-purple: #A29DAB;
+    --grey-6: #F3F3F5;
+}
+
+*,
+*::before,
+*::after {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: none !important;
+    -ms-overflow-style: none;
+    transition: all 0.3s;
+    scrollbar-width: none;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
+
+/* .scanner-container > div { */
+    /* height: 500px; */
+/* } */
+
+.scanner-container video {
+    height: 100%;
+}
+
+@keyframes moveUp {
+    0% {
+        transform: translateY(150px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes moveDown {
+    0% {
+        transform: translateY(0px);
+    }
+
+    100% {
+        transform: translateY(150px);
+    }
+}
